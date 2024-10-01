@@ -27,8 +27,7 @@ class FaculController extends Controller
             $query = $query
                 ->where('student_name', 'LIKE', "%$search%")
                 ->orWhere('student_id', 'LIKE', "%$search%")
-                ->orWhere('student_surna', 'LIKE', "%$search%")
-                ->orWhere('me', 'LIKE', "%$search%")
+                ->orWhere('student_surname', 'LIKE', "%$search%")
                 ->orWhere('student_tel', 'LIKE', "%$search%")
                 ->get();
         } else {
@@ -51,16 +50,14 @@ class FaculController extends Controller
     {
         $request->validate([
             'student_name' => 'required|string|max:50',
-            'student_surna' => 'required|string|max:50',
+            'student_surname' => 'required|string|max:50',
             'student_tel' => 'nullable|string|max:10',
-            'me' => 'nullable|string|max:50', // เพิ่มการตรวจสอบนี้
         ]);
 
         DB::table('student')->where('student_id', $id)->update([
             'student_name' => $request->student_name,
-            'student_surna' => $request->student_surna,
+            'student_surname' => $request->student_surname,
             'student_tel' => $request->student_tel,
-            'me' => $request->me,
         ]);
 
         // ส่งกลับหลังจากอัปเดต

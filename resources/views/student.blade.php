@@ -34,9 +34,8 @@
                 <thead>
                     <tr>
                         <th scope="col ">#</th>
-                        <th scope="col">รหัส</th>
+                        <th scope="col">รหัสนักศึกษา</th>
                         <th scope="col">ชื่อ นามสกุล</th>
-                        <th scope="col">เบอร์โทร</th>
                         <th scope="col">เบอร์โทร</th>
                     </tr>
                 </thead>
@@ -49,8 +48,8 @@
                         <tr>
                             <th scope="row">{{ $i++ }}</th>
                             <td>{{ $que->student_id }}</td>
-                            <td>{{ $que->student_name }} {{ $que->student_surna }}</td>
-                            <td>{{ $que->me }}</td>
+                            <td>{{ $que->student_name }} {{ $que->student_surname }}</td>
+
                             <td>{{ $que->student_tel }}</td>
                             <td><a type="button" href="{{ url('student-edit', $que->student_id) }}"
                                     class="btn btn-warning">เเก้ไข</a>

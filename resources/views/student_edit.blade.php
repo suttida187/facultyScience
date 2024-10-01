@@ -20,25 +20,16 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputAddress"
-                        class="form-label @error('student_surna') is-invalid @enderror">นามสกุล</label>
-                    <input type="text" class="form-control" name="student_surna" id="student_surna"
-                        value="{{ $query[0]->student_surna }}">
-                    @error('student_surna')
+                        class="form-label @error('student_surname') is-invalid @enderror">นามสกุล</label>
+                    <input type="text" class="form-control" name="student_surname" id="student_surname"
+                        value="{{ $query[0]->student_surname }}">
+                    @error('student_surname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                <div class="col-md-8">
-                    <label for="inputAddress" class="form-label @error('me') is-invalid @enderror">me</label>
-                    <input type="text" class="form-control" name="me" id="me" value="{{ $query[0]->me }}">
-                    @error('me')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <label for="inputAddress" class="form-label">เบอร์โทร</label>
                     <input type="text" class="form-control @error('student_tel') is-invalid @enderror" name="student_tel"
                         id="student_tel" value="{{ $query[0]->student_tel }}">
