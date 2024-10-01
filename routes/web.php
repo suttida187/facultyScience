@@ -18,3 +18,6 @@ Route::get('student-destroy/{id}', [FaculController::class, 'studentDestroy'])->
 Route::post('student-search', [FaculController::class, 'student'])->name('student-search');
 Route::get('faculty', [FaculController::class, 'faculty'])->name('faculty');
 Route::post('faculty-search', [FaculController::class, 'faculty'])->name('faculty-search');
+Route::get('faculty-edit/{id}', [FaculController::class, 'facultyEdit'])->name('teacher-edit');
+Route::put('faculty-update/{id}', [FaculController::class, 'facultyUpdate'])->name('faculty-update');
+Route::get('faculty-destroy/{id}', [FaculController::class, 'facultyDestroy'])->name('faculty-destroy');

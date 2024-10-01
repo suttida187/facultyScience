@@ -154,4 +154,36 @@ class FaculController extends Controller
 
         return view('welcome', compact('query'));
     }
+    public function facultyEdit($id)
+    {
+
+        $query = DB::table('faculty')
+            ->where('fac_id',  $id)
+            ->get();
+
+        return view('welcome_edit', compact('query'));
+    }
+    public function facultyUpdate(Request $request, $id)
+    {
+
+        $request->validate([
+            'fac_name' => 'required|string|max:50',
+        ]);
+
+        DB::table('faculty')->where('fac_id', $id)->update([
+            'fac_name' => $request->fac_name
+        ]);
+
+        // ส่งกลับหลังจากอัปเดต
+        return redirect()->route('faculty')->with('success', 'ข้อมูลถูกอัปเดตเรียบร้อยแล้ว');
+    }
+
+    public function facultyDestroy($id)
+    {
+
+
+        DB::table('faculty')->where('fac_id', $id)->delete();
+
+        return redirect()->route('faculty')->with('success', 'ข้อมูลถูกลบเรียบร้อยแล้ว');
+    }
 }

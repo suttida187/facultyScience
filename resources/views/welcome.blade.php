@@ -48,7 +48,13 @@
                             <th scope="row">{{ $i++ }}</th>
                             <td>{{ $que->fac_id }}</td>
                             <td>{{ $que->fac_name }}</td>
-
+                            <td><a type="button" href="{{ url('faculty-edit', $que->fac_id) }}"
+                                    class="btn btn-warning">เเก้ไข</a>
+                            </td>
+                            <td><a type="button" href="{{ url('faculty-destroy', $que->fac_id) }}"
+                                    onclick="return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?');"
+                                    class="btn btn-danger">ลบ</a>
+                            </td>
                         </tr>
                     @endforeach
 
