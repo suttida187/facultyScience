@@ -4,15 +4,15 @@
     <div class="justify-content-center">
         <div class="col-8 ">
             <h1 class="mb-4">เเก้ไขข้อมูล</h1>
-            <form class="row g-3" method="POST" action="{{ route('teacher-update', $query[0]->teacher_id) }}"
+            <form class="row g-3" method="POST" action="{{ route('student-update', $query[0]->student_id) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="col-md-6">
                     <label for="inputAddress" class="form-label">ชื่อ</label>
                     <input type="text" class="form-control @error('teacher_name') is-invalid @enderror"
-                        name="teacher_name" id="teacher_name" value="{{ $query[0]->teacher_name }}">
-                    @error('teacher_name')
+                        name="student_name" id="student_name" value="{{ $query[0]->student_name }}">
+                    @error('student_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -20,30 +20,29 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputAddress"
-                        class="form-label @error('teacher_surname') is-invalid @enderror">นามสกุล</label>
-                    <input type="text" class="form-control" name="teacher_surname" id="teacher_surname"
-                        value="{{ $query[0]->teacher_surname }}">
-                    @error('teacher_surname')
+                        class="form-label @error('student_surna') is-invalid @enderror">นามสกุล</label>
+                    <input type="text" class="form-control" name="student_surna" id="student_surna"
+                        value="{{ $query[0]->student_surna }}">
+                    @error('student_surna')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="col-md-8">
-                    <label for="inputAddress" class="form-label @error('teacher_tel') is-invalid @enderror">เบอร์โทร</label>
-                    <input type="text" class="form-control" name="teacher_tel" id="teacher_tel"
-                        value="{{ $query[0]->teacher_tel }}">
-                    @error('teacher_tel')
+                    <label for="inputAddress" class="form-label @error('me') is-invalid @enderror">me</label>
+                    <input type="text" class="form-control" name="me" id="me" value="{{ $query[0]->me }}">
+                    @error('me')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">ห้องสอน</label>
-                    <input type="text" class="form-control @error('teacher_room') is-invalid @enderror"
-                        name="teacher_room" id="teacher_room" value="{{ $query[0]->teacher_room }}">
-                    @error('teacher_room')
+                    <label for="inputAddress" class="form-label">เบอร์โทร</label>
+                    <input type="text" class="form-control @error('student_tel') is-invalid @enderror" name="student_tel"
+                        id="student_tel" value="{{ $query[0]->student_tel }}">
+                    @error('student_tel')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

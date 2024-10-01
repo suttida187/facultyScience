@@ -17,6 +17,7 @@ class FaculController extends Controller
     }
 
 
+    // นักศึกษา
     public function student(Request $request)
     {
         $search = $request->search;
@@ -36,6 +37,46 @@ class FaculController extends Controller
         }
         return view('student', compact('query'));
     }
+
+    public function studentEdit($id)
+    {
+        $query = DB::table('student')
+            ->where('student_id',  $id)
+            ->get();
+
+        return view('student_edit', compact('query'));
+    }
+
+    public function studentUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'student_name' => 'required|string|max:50',
+            'student_surna' => 'required|string|max:50',
+            'student_tel' => 'nullable|string|max:10',
+            'me' => 'nullable|string|max:50', // เพิ่มการตรวจสอบนี้
+        ]);
+
+        DB::table('student')->where('student_id', $id)->update([
+            'student_name' => $request->student_name,
+            'student_surna' => $request->student_surna,
+            'student_tel' => $request->student_tel,
+            'me' => $request->me,
+        ]);
+
+        // ส่งกลับหลังจากอัปเดต
+        return redirect()->route('student')->with('success', 'ข้อมูลถูกอัปเดตเรียบร้อยแล้ว');;
+    }
+
+    public function studentDestroy($id)
+    {
+
+
+        DB::table('student')->where('student_id', $id)->delete();
+
+        return redirect()->route('student')->with('success', 'ข้อมูลถูกลบเรียบร้อยแล้ว');
+    }
+
+    //อาจารย์
     public function teacher(Request $request)
     {
         $search = $request->search;
@@ -54,6 +95,7 @@ class FaculController extends Controller
         }
         return view('teacher', compact('query'));
     }
+
     public function teacherEdit($id)
     {
 
@@ -62,6 +104,7 @@ class FaculController extends Controller
             ->get();
         return view('teacher_edit', compact('query'));
     }
+
     public function teacherUpdate(Request $request, $id)
     {
 
@@ -82,6 +125,17 @@ class FaculController extends Controller
         // ส่งกลับหลังจากอัปเดต
         return redirect()->route('teacher')->with('success', 'ข้อมูลถูกอัปเดตเรียบร้อยแล้ว');
     }
+
+    public function teacherDestroy($id)
+    {
+
+
+        DB::table('teacher')->where('teacher_id', $id)->delete();
+
+        return redirect()->route('teacher')->with('success', 'ข้อมูลถูกลบเรียบร้อยแล้ว');
+    }
+
+    //คณะ
     public function faculty(Request $request)
     {
 

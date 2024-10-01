@@ -52,6 +52,13 @@
                             <td>{{ $que->student_name }} {{ $que->student_surna }}</td>
                             <td>{{ $que->me }}</td>
                             <td>{{ $que->student_tel }}</td>
+                            <td><a type="button" href="{{ url('student-edit', $que->student_id) }}"
+                                    class="btn btn-warning">เเก้ไข</a>
+                            </td>
+                            <td><a type="button" href="{{ url('student-destroy', $que->student_id) }}"
+                                    onclick="return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?');"
+                                    class="btn btn-danger">ลบ</a>
+                            </td>
 
                         </tr>
                     @endforeach

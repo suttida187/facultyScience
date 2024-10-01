@@ -57,7 +57,9 @@
                             <td><a type="button" href="{{ url('teacher-edit', $que->teacher_id) }}"
                                     class="btn btn-warning">เเก้ไข</a>
                             </td>
-                            <td><button type="button" class="btn btn-danger">ลบ</button>
+                            <td><a type="button" href="{{ url('teacher-destroy', $que->teacher_id) }}"
+                                    onclick="return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?');"
+                                    class="btn btn-danger">ลบ</a>
                             </td>
 
                         </tr>
