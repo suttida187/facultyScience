@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-
-    <link href="{{ URL::asset('bootstrap.css') }}" rel="stylesheet">
-</head>
-
-<body>
+@section('content')
     <div class="justify-content-center">
         <div class="col-8 ">
             <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
                 <div class="container-fluid">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     @include('navbarLink')
@@ -59,6 +38,8 @@
                         <th scope="col">ชื่อ นามสกุล</th>
                         <th scope="col">เบอร์โทร</th>
                         <th scope="col">ห้องสอน</th>
+                        <th scope="col">เเก้ไข</th>
+                        <th scope="col">ลบ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,6 +54,11 @@
                             <td>{{ $que->teacher_name }} {{ $que->teacher_surname }}</td>
                             <td>{{ $que->teacher_tel }}</td>
                             <td>{{ $que->teacher_room }}</td>
+                            <td><a type="button" href="{{ url('teacher-edit', $que->teacher_id) }}"
+                                    class="btn btn-warning">เเก้ไข</a>
+                            </td>
+                            <td><button type="button" class="btn btn-danger">ลบ</button>
+                            </td>
 
                         </tr>
                     @endforeach
@@ -83,6 +69,4 @@
 
         </div>
     </div>
-</body>
-
-</html>
+@endsection
