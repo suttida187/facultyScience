@@ -17,7 +17,7 @@
             <div class="mb-3">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <p class="mb-0 please-enter">กรุณาป้อนชื่อคณะ</p>
+                        <p class="mb-0 please-enter">กรุณาป้อนชื่อนักศึกษา</p>
                     </div>
                     <div class="col">
                         <form id="multiStepForm" class="multi-step-form d-flex" method="POST"
@@ -37,7 +37,7 @@
                         <th scope="col">รหัส</th>
                         <th scope="col">ชื่อ นามสกุล</th>
                         <th scope="col">เบอร์โทร</th>
-                        <th scope="col">ห้องสอน</th>
+                        <th scope="col">เบอร์โทร</th>
                     </tr>
                 </thead>
                 <tbody>

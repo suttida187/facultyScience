@@ -17,7 +17,7 @@
             <div class="mb-3">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <p class="mb-0 please-enter">กรุณาป้อนชื่อคณะ</p>
+                        <p class="mb-0 please-enter">กรุณาป้อนชื่ออาจารย์</p>
                     </div>
                     <div class="col">
                         <form id="multiStepForm" class="multi-step-form d-flex" method="POST"
