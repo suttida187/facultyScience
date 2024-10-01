@@ -1,0 +1,11 @@
+.justify-content-center {
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+}
+
+.please-enter {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}

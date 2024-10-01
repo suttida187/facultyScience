@@ -42,7 +42,7 @@
                     </div>
                     <div class="col">
                         <form id="multiStepForm" class="multi-step-form d-flex" method="POST"
-                            action="{{ route('faculty-search') }}" enctype="multipart/form-data">
+                            action="{{ route('teacher-search') }}" enctype="multipart/form-data">
                             @csrf
                             <input class="form-control me-2" type="search" placeholder="Search" name="search"
                                 aria-label="Search">
@@ -55,8 +55,10 @@
                 <thead>
                     <tr>
                         <th scope="col ">#</th>
-                        <th scope="col">รหัสคณะ</th>
-                        <th scope="col">ชื่อคณะ</th>
+                        <th scope="col">รหัส</th>
+                        <th scope="col">ชื่อ นามสกุล</th>
+                        <th scope="col">เบอร์โทร</th>
+                        <th scope="col">ห้องสอน</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,8 +69,10 @@
                     @foreach ($query as $que)
                         <tr>
                             <th scope="row">{{ $i++ }}</th>
-                            <td>{{ $que->fac_id }}</td>
-                            <td>{{ $que->fac_name }}</td>
+                            <td>{{ $que->teacher_id }}</td>
+                            <td>{{ $que->teacher_name }} {{ $que->teacher_surname }}</td>
+                            <td>{{ $que->teacher_tel }}</td>
+                            <td>{{ $que->teacher_room }}</td>
 
                         </tr>
                     @endforeach
